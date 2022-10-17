@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang = "ro">
+	<head>
+		<meta charset ="UTF-8">
+		<meta name = "keywords" content="biblioteca, carti, citit, Nicolae Balcescu, cultural, lectura, Bacau">
+		<meta name = "description" content="Site-ul oficial al biblitecii din Nicolae Bălcescu">
+		<meta name = "author" content="Sabău Eduard">
+		<link rel="apple-touch-icon" sizes="180x180" href="./resources/icon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./resources/icon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./resources/icon/favicon-16x16.png">
+		<link rel="manifest" href="./resources/icon/site.webmanifest">
+		<link rel="mask-icon" href="./resources/icon/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="./resources/icon/favicon.ico">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-config" content="./resources/icon/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="./resources/layout.css" />
+		<script src="./resources/app.js"></script>
+		<title>  Biblioteca din Nicolae Bălcescu </title>
+	</head>
+	<body>
+		
+		<%- include("../fragmente/header.ejs") %>
+		<main>
+			<div id="login">
+				<form method="post" action="/login">
+					<label>
+						Username: <input type="text" name="username" required />
+					</label><br/>
+					<label>
+						Parola: <input type="password" name="parola" required />
+					</label><br>
+					<input type="submit" value="Trimite" id="submit">
+				</form>
+			</div>
+		<div id="container_inregistrare">
+			<h2 style="font-size:30px; padding-top:30px; padding-bottom:30px">Inregistrare</h2>
+            <% if(!locals.raspuns) { %>
+            <form method="post" action="/inregistrare" id="register">
+                <label>
+                    Username: <input type="text" name="username" required />
+                </label><br/>
+                <label>
+                    Parola: <input type="password" name="parola" required />
+                </label>  <br/>              
+                <label>
+                    E-mail: <input type="text" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" />
+                </label><br/>
+                <input type="submit" value="Trimite">
+                <input type="reset" value="Reset">
+            </form>
+            <% } else  { %>
+                <p>Contul a fost creat cu succes!</p>
+            <% } %>	
+		</div>	
+		</main>
+		
+		<%- include("../fragmente/footer.ejs") %>	
+		
+	</body>
+</html>

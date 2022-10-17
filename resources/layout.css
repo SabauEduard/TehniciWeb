@@ -1,0 +1,334 @@
+
+#login {
+	display: block
+}
+
+
+#container {
+	display: grid;
+	grid-template-areas: "z-s1 z-s1"
+						 "z-s2 z-s3";
+	
+	grid-template-columns: 1fr 1fr;
+	font-size: 1.1em;
+	
+	
+}
+
+#container>section{
+	border: 2px solid blue;
+	padding-right: 25px;
+	padding-left: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+}
+
+#imagine {
+	width: 100%;
+}
+
+#s1 {
+	grid-area: z-s1;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+
+#s2 {
+	grid-area: z-s2;
+	border-bottom-left-radius: 25px;
+}
+
+#s3 {
+	grid-area: z-s3;
+	border-bottom-right-radius: 25px;
+}
+nav ul{
+	margin:0;
+	padding:0;
+}
+ul.meniu{
+	display: flex;
+	z-index: 10;
+	justify-content: center;
+}
+ul.meniu ul li{
+	background-color: #F7F5BC
+}
+body{
+	--dim-border-meniu:1px;
+	--inaltime-meniu:50px;
+	--dim-text: 17px;
+	font-family: Times New Roman;
+	background-image: url(imagini/background_carti_mare.jpg);
+}
+
+#start_pagina{
+	padding: 10px;
+	background-color: #B8DCF5;
+	margin: auto;
+	width: 80%;
+	text-align: center;
+	border-radius: 30px;
+	
+	
+}
+#start_pagina h1:first-letter{
+	font-size:200%;
+	color: red;
+}
+	
+a:visited{
+	text-decoration: none;
+}
+ul.meniu li{
+	list-style-type: none;
+	border: var(--dim-border-meniu) solid black;
+	height: var(--inaltime-meniu);
+	background-color: #9FD4CC;
+	width: 150px;
+	text-align: center;
+	line-height: 50px;
+	overflow: hidden;
+	transition: font-size 0.7s linear, background-color 1.2s linear 0.2s;
+	
+}
+
+ul.meniu>li:hover{
+	overflow: visible;
+}
+
+ul.meniu>li{
+	font-size: 1.5em;
+}
+
+ul.meniu li:hover{
+	background-color: red;
+}
+
+ul.meniu ul{
+	position: relative;	
+}
+
+ul.meniu>li>ul>li:hover{
+	font-size: 1.1em;
+}
+
+ul.meniu a{
+	display: block;
+	width: 100%;
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+
+#chk-meniu, #img-meniu{
+	display: none;
+}
+
+@keyframes animatie_meniu{
+	0%{transform:scaleY(0);}
+	100%{transform:scaleY(1);}
+	
+}
+
+#container{
+	counter-reset: nrsectiuni;
+	padding:  50px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	
+	
+}
+
+#container section{	
+	background-color: #9FD4CC
+	
+}
+	
+
+#container>section>h2::before{
+	content: counter(nrsectiuni, upper-roman)".";
+	counter-increment: nrsectiuni;
+}
+
+#subsol{
+	margin-right: 50px;
+	margin-left: 50px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	padding: 25px;
+	padding-bottom: 10px;
+	background-color: #B8DCF5;
+	border-radius: 30px;
+}
+
+@media screen and (max-width:900px){
+	ul.meniu{
+		display: none;
+		transform-origin: center top;
+	}
+	#container {
+		grid-template-areas: "z-s1"
+							"z-s2 "
+							"z-s3";
+		grid-template-columns: 1fr; 
+	}
+	ul.meniu li{
+		width:100%;
+	}
+	#chk-meniu:checked~ul.meniu{
+		display: block;
+		animation: animatie_meniu 0.7s 1 linear;
+	}
+	#img-meniu{
+		height: var(--inaltime-meniu);
+		width: auto;
+		display: inline-block;
+	}
+	ul.meniu ul li{
+		background-color: #F7F5BC;
+	}
+	body{
+		background-image: url(imagini/background_carti_mic.jpg);
+		margin: 0px;
+	}
+	#s2{
+		border-bottom-left-radius: 0px;
+	}
+	#s3{
+		border-bottom-left-radius: 25px;
+	}
+}
+
+
+
+#html_carti
+{
+	height:100%;
+}
+#body_carti
+{
+	padding-left:5%;
+	padding-right:5%;
+	background-image: url(imagini/background_carti_mare.jpg);
+	height:100%;
+}
+#main_carti{
+	padding: 10px;
+}
+th,td
+{
+	text-align: center;
+	border:1px solid black;
+	padding:5px;
+}
+table
+{
+	background:#A9A9A9;
+	border-collapse:collapse;
+	empty-cells:show;
+	margin:0 auto;
+}
+
+#container_butoane
+{
+	border:3px solid rgb(66, 93, 245);
+	background:rgb(242, 244, 255);
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 0.5em;
+	margin-top :0.5em;
+	margin-bottom: 0.5em;
+	justify-content: center;
+	
+}
+#container_butoane button
+{
+	width: 100px;
+	margin: 0.5em;
+	background: white;
+	border:2px solid grey;
+	padding: 0.3em;
+	border-radius: 0.4em;
+	min-height: 3em;
+	transition: all 0.4s linear;
+}
+#container_butoane button:hover
+{
+	box-shadow: grey 0px 0px 0.3em inset;
+}
+
+.selectat
+{
+	background:#e6fcec;
+}
+
+#loader_container
+{
+    position: fixed;
+    top:0; left: 0;
+    height:100%;
+    width: 100%;
+    z-index: 10000;
+    background:#f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader_container img
+{
+    height:120px;
+}
+
+#container_eroare
+{
+	border-radius: 25px;
+	background-color: #9FD4CC;
+	text-align: center;
+	height: 300px;
+	
+}
+
+#header_eroare
+{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	color: red;
+	text-align: center;
+	font-size: 50px;
+}
+
+#login{
+    position: fixed;
+    top:0; left: 0;
+    height:100%;
+    width: 100%;
+    z-index: 10000;
+    background:rgba(255,255,255,.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#login form{
+    background:#fff;
+    border: .1rem solid rgba(0,0,0,.1);
+    width:40rem;
+    padding:2rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border-radius: .5rem;
+    margin:2rem;
+}
+
+#container_inregistrare
+{
+	border-radius: 25px;
+	background-color: #9FD4CC;
+	text-align: center;
+	height: 300px;
+	
+}

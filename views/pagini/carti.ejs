@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ro" id="html_carti">
+	<head>
+		<meta charset ="UTF-8">
+		<meta name = "keywords" content="biblioteca, carti, citit, Nicolae Balcescu, cultural, lectura, Bacau">
+		<meta name = "description" content="Site-ul oficial al biblitecii din Nicolae Bălcescu">
+		<meta name = "author" content="Sabău Eduard">
+		<link rel="apple-touch-icon" sizes="180x180" href="./resources/icon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./resources/icon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./resources/icon/favicon-16x16.png">
+		<link rel="manifest" href="./resources/icon/site.webmanifest">
+		<link rel="mask-icon" href="./resources/icon/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="./resources/icon/favicon.ico">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-config" content="./resources/icon/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="./resources/layout.css" />
+		<script src="./resources/app.js"></script>
+	</head>
+	<body id="body_carti">
+
+		<%- include("../fragmente/header.ejs") %>
+
+		<main id ="main_carti">
+			<div id="login">
+				<form method="post" action="/login">
+					<label>
+						Username: <input type="text" name="username" required />
+					</label><br/>
+					<label>
+						Parola: <input type="password" name="parola" required />
+					</label><br>
+					<input type="submit" value="Trimite" id="submit">
+				</form>
+			</div>
+			<div id="container_tabel">
+				<table id="tab">
+					<thead>
+						<tr id="attrs">
+						<th>Titlu</th>
+						<th>Autori</th>
+						<th>Limba original</th>
+						<th>An aparitie</th>
+						<th>Numar pagini</th>
+						</tr>
+					</thead>
+					<tbody id="carti">
+						<tr>
+						<td>Siddhartha</td>
+						<td>Hermann Hesse</td>
+						<td>germana</td>
+						<td>1922</td>
+						<td>152</td>
+						</tr>
+						<tr>
+							<td>Anna Karenina</td>
+							<td>Lev Tolstoi</td>
+							<td>rusa</td>
+							<td>1878</td>
+							<td>864</td>
+						</tr>
+						<tr>
+							<td>Asa grait-a Zarathustra</td>
+							<td>Friedrich Nietzsche</td>
+							<td>germana</td>
+							<td>1883</td>
+							<td>352</td>
+						</tr>
+						<tr>
+							<td>Printul</td>
+							<td>Niccolo Machiavelii</td>
+							<td>italiana</td>
+							<td>1532</td>
+							<td>244</td>
+						</tr>
+						<tr>
+							<td>Marele Gatsby</td>
+							<td>F. Scott Fitzgerald</td>
+							<td>engleza</td>
+							<td>1925</td>
+							<td>180</td>
+						</tr>
+						<tr>
+							<td>Ion</td>
+							<td>Liviu Rebreanu</td>
+							<td>romana</td>
+							<td>1920</td>
+							<td>448</td>
+						</tr>
+						<tr>
+							<td>Fratii Karamazov</td>
+							<td>Fyodor Dostoevsky</td>
+							<td>rusa</td>
+							<td>1880</td>
+							<td>840</td>
+						</tr>
+						<tr>
+							<td>Ferma Animalelor</td>
+							<td>George Orwell</td>
+							<td>engleza</td>
+							<td>1945</td>
+							<td>192</td>
+						</tr>
+						<tr>
+							<td>Romeo si Julieta</td>
+							<td>William Shakespeare</td>
+							<td>engleza</td>
+							<td>1597</td>
+							<td>96</td>
+						</tr>
+						<tr>
+							<td>Dracula</td>
+							<td>Bram Stoker</td>
+							<td>engleza</td>
+							<td>1897</td>
+							<td>418</td>
+						</tr>
+						<tr>
+							<td>Enigma Otiliei</td>
+							<td>George Calinescu</td>
+							<td>romana</td>
+							<td>1938</td>
+							<td>496</td>
+						</tr>
+						<tr>
+							<td>Ciuma</td>
+							<td>Albert Camus</td>
+							<td>franceza</td>
+							<td>1947</td>
+							<td>270</td>
+						</tr>
+						<tr>
+							<td>Sapiens: O scurta istorie a omenirii</td>
+							<td>Yuval Noah Harari</td>
+							<td>ebraica</td>
+							<td>2011</td>
+							<td>443</td>
+						</tr>
+						<tr>
+							<td>Znachor</td>
+							<td>Tadeusz Dolega-Mostowicz</td>
+							<td>poloneza</td>
+							<td>1937</td>
+							<td>321</td>
+						</tr>
+						<tr>
+							<td>Alchimistul</td>
+							<td>Paulo Coelho</td>
+							<td>portugheza</td>
+							<td>1988</td>
+							<td>163</td>
+						</tr>
+						<tr>
+							<td>Stralucirea</td>
+							<td>Stephen King</td>
+							<td>engleza</td>
+							<td>1977</td>
+							<td>447</td>
+						</tr>
+						<tr>
+							<td>Adam si Eva</td>
+							<td>Liviu Rebreanu</td>
+							<td>romana</td>
+							<td>1925</td>
+							<td>208</td>
+						</tr>
+					</tbody>
+				  </table>
+			</div>
+			<div id="container_butoane">
+				<button id="sorteaza">Sorteaza dupa atribut</button>
+				<button id="sterge">Sterge dupa atribut si valoarea atributului</button>
+				<button id="select">Selecteaza dupa atribut si valoarea atributului</button>
+				<button id="deselect">Deselecteaza toate cartile</button>
+				<button id="rand_select">Selecteaza aleatoriu o carte</button>
+			</div>
+		</main>
+
+		<%- include("../fragmente/footer.ejs") %>	
+
+	</body>
+</html>

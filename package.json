@@ -1,0 +1,21 @@
+{
+  "name": "proiect_web",
+  "version": "1.0.0",
+  "description": "proiect tehnici web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "carte",
+    "autor",
+    "biblioteca"
+  ],
+  "author": "Sabau Eduard",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3"
+  }
+}

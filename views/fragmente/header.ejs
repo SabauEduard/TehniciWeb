@@ -1,0 +1,27 @@
+<header id="start_pagina">
+			<h1> Biblioteca din Nicolae Bălcescu </h1>
+			<nav>
+				<label for="chk-meniu" > <img id="img-meniu" src="./resources/imagini/Hamburger_icon_alb.png" alt="meniu"> </label>
+				<input type="checkbox" id="chk-meniu">
+				<ul class="meniu">
+					
+					<li> <a href="/index">Acasa</a> 
+						<ul>
+							<li> <a href="/index#s1">Informatii generale </a> </li>
+							<li> <a href="/index#s2">Sectiunea 2 </a> </li>
+						</ul>
+					</li>
+					<li> <a href="/carti"> Carti </a></li>
+					<li> <a href="/categorii"> Categorii </a></li>
+					<% if(locals.utilizator) { %>
+					<li><a href="/logout">Logout</a></li>
+					<li><div style="font-weight:bold">Nume cont: <%- locals.utilizator.username %></div></li>    
+					<% } %>
+					<% if(!locals.utilizator) { %>  
+						<li style="font-weight:bold" id="login_button">Login</li>
+						<li> <a href="/inregistrare"> Inregistrare </a> </li>
+						<% } %>
+				</ul>
+			</nav>
+			
+</header>

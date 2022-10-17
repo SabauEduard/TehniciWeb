@@ -1,0 +1,78 @@
+const express=require('express');
+const fs = require('fs');
+const calejson = __dirname + "/resources/json/utilizatori.json";
+const crypto = require('crypto');
+const session = require('express-session');
+
+app = express();
+app.set("view engine", "ejs");
+
+app.use("/resources", express.static(__dirname+"/resources"));
+app.use(express.urlencoded({extended:true})); // creeaza req.body
+
+app.use(session({secret: 'abcdefg', resave: true, saveUninitialized: false}));
+
+app.get(["/", "/index"], function(req, res)
+{
+	res.render("pagini/index", {utilizator:req.session.utilizator});	
+});
+
+app.get("/logout", function(req, res)
+{
+	req.session.destroy();
+	res.render("pagini/logout");
+});
+
+app.post("/login", function(req, res)
+{
+	let useri;
+	if(! fs.existsSync(calejson))
+	{
+		useri = {useri:[]};
+	}
+	else
+	{
+		useri = JSON.parse(fs.readFileSync(calejson).toString("utf8"));
+	}
+	req.body.parola=crypto.scryptSync(req.body.parola, "parola criptare", 32).toString("hex");
+	for(let user of useri.useri)
+	{
+		if(user.username == req.body.username && user.parola == req.body.parola)
+		{
+			req.session.utilizator = user;
+			break;
+		}
+	}
+	res.render("pagini/index", {utilizator:req.session.utilizator});
+})
+
+app.post("/inregistrare", function(req, res)
+{
+	let useri;
+	if(! fs.existsSync(calejson))
+	{
+		useri = {useri:[]};
+	}
+	else
+	{
+		useri = JSON.parse(fs.readFileSync(calejson).toString("utf8"));
+	}
+	req.body.parola=crypto.scryptSync(req.body.parola, "parola criptare", 32).toString("hex");
+	useri.useri.push(req.body);
+	fs.writeFileSync(calejson, JSON.stringify(useri));
+	res.render("pagini/inregistrare", {raspuns: "ok", utilizator:req.session.utilizator});
+})
+
+app.get("/*", function(req, res)
+{
+	res.render("pagini"+req.url, function(err, resRand)
+	{
+		if(err)
+			res.render("pagini/404", {utilizator:req.session.utilizator});
+		else res.send(resRand);
+	});
+});
+
+app.listen(8082);
+console.log("Serverul a pornit!");
+
